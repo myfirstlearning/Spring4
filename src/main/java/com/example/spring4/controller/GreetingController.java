@@ -13,9 +13,9 @@ public class GreetingController {
     @Autowired
     private HelloWorldService helloWorldService;
 
-    @Autowired
+   /* @Autowired
     @Qualifier("helloWorldServiceGermanImpl")
-    private HelloWorldService helloWorldGermanService;
+    private HelloWorldService helloWorldGermanService;*/
 
     @Autowired
     private FinalGreetingService finalGreetingService;
@@ -25,9 +25,9 @@ public class GreetingController {
         this.helloWorldService = helloWorldService;
     }
 
-    public void setHelloWorldGermanService(HelloWorldService helloWorldGermanService) {
+    /*public void setHelloWorldGermanService(HelloWorldService helloWorldGermanService) {
         this.helloWorldGermanService = helloWorldGermanService;
-    }
+    }*/
 
 
     public String sayHello(){
@@ -36,9 +36,9 @@ public class GreetingController {
         System.out.println("***********************************");
         System.out.println(">>>> Invoking HelloWorld Service : " + greeting);
 
-        String germanGreeting = helloWorldGermanService.getGreeting();
+       /* String germanGreeting = helloWorldGermanService.getGreeting();
         System.out.println("***********************************");
-        System.out.println(">>>> Invoking HelloWorld Service : " + germanGreeting);
+        System.out.println(">>>> Invoking HelloWorld Service : " + germanGreeting);*/
 
         String finalGreeting = finalGreetingService.getFinalGreeting();
         System.out.println("***********************************");
