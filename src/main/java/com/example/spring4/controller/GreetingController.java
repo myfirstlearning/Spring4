@@ -17,12 +17,16 @@ public class GreetingController {
     @Qualifier("helloWorldServiceGermanImpl")
     private HelloWorldService helloWorldGermanService;*/
 
-    @Autowired
+    //@Autowired
     private FinalGreetingService finalGreetingService;
 
     //@Autowired
     public void setHelloWorldService(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
+    }
+
+    public void setFinalGreetingService(FinalGreetingService finalGreetingService) {
+        this.finalGreetingService = finalGreetingService;
     }
 
     /*public void setHelloWorldGermanService(HelloWorldService helloWorldGermanService) {
