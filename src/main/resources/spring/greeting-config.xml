@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Creating Final Greeting Bean -->
+    <bean id="FinalGreetingService" class="com.example.spring4.services.impl.FinalGreetingSericeImpl"/>
+
+    <!-- HelloWorldFactory Class Bean Creation -->
+    <bean id="helloWorldFactory" class="com.example.spring4.services.impl.HelloWorldFactory"/>
+
+    <!-- Creating French Greeting Bean-->
+    <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="fr"/>
+    </bean>
+
+    <!-- Creating Germany Greeting Bean, bean id will be the method name-->
+    <bean id="helloWorldServiceGermany" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+        <constructor-arg value="eg"/>
+    </bean>
+
+    <!-- Creating English Greeting Bean -->
+    <beans profile="english">
+        <import resource="classpath*:spring/english-greeting.xml"/>
+    </beans>
+
+    <!-- Creating English Greeting Bean -->
+    <beans profile="spanish">
+        <import resource="classpath*:spring/spanish-greeting.xml"/>
+    </beans>
+
+
+</beans>

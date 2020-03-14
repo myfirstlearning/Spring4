@@ -7,39 +7,12 @@
     <!-- Component Scan Creation -->
     <context:component-scan base-package="com.example"/>
 
+    <import resource="classpath*:spring/greeting-config.xml"/>
+    
     <!-- Greeting Controller Bean Creation-->
     <bean id="greetingController" class="com.example.spring4.controller.GreetingController">
         <property name="helloWorldService" ref="helloWorldServiceDefault"/>
         <property name="finalGreetingService" ref="FinalGreetingService"/>
     </bean>
-
-    <bean id="FinalGreetingService" class="com.example.spring4.services.impl.FinalGreetingSericeImpl"/>
-
-    <!-- HelloWorldFactory Class Bean Creation -->
-    <bean id="helloWorldFactory" class="com.example.spring4.services.impl.HelloWorldFactory"/>
-
-    <!-- Creating French Greeting Bean-->
-    <bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="fr"/>
-    </bean>
-
-    <!-- Creating Germany Greeting Bean, bean id will be the method name-->
-    <bean id="helloWorldServiceGermany" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-        <constructor-arg value="eg"/>
-    </bean>
-
-    <!-- Creating English Greeting Bean -->
-    <beans profile="english">
-        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
-            <constructor-arg value="en"/>
-        </bean>
-    </beans>
-
-    <!-- Creating English Greeting Bean -->
-    <beans profile="spanish">
-        <bean id="helloWorldServiceDefault" factory-bean="helloWorldFactory" factory-method="createHelloWorldService" primary="true">
-            <constructor-arg value="es"/>
-        </bean>
-    </beans>
 
 </beans>
