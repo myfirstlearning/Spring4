@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-@Controller
+//@Controller //commenting to test XML Configuration in SpringBoot
 public class GreetingController {
 
-    @Autowired
+    //@Autowired
     private HelloWorldService helloWorldService;
 
-   /* @Autowired
+   /* @Autowired //Qualifier
     @Qualifier("helloWorldServiceGermanImpl")
     private HelloWorldService helloWorldGermanService;*/
 
